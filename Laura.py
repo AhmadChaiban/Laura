@@ -93,7 +93,7 @@ while True:    ## infinite while loop being performed here
                 break               ##This break is done so that Laura can say hi to the human again
             check,frame = video.read()  ##reads another frame from the video feed
             face_position = face_cascade.detectMultiScale(frame,scaleFactor=1.05,minNeighbors=5)  ##Attempts to detect the face
-            if len(face_position)>0:   ## if a face was indeed detected
+            if len(face_position) > 0:   ## if a face was indeed detected
 		        print("seen")          ## print "seen"
                 face_position_real = face_position[0][0]  ##Find the x-coordinate of the face
                 w = face_position[0][2]                  ##find the z-coordinate of the face
