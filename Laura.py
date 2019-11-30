@@ -2,10 +2,9 @@
 ########################################### CarBar automation ################################################
 
 ##This is the script that automates CarBar and allows for its movement, facial recognition, and coming soon,
-##facial recognition. This is still a WIP at this stage. 
+##Individual face classification. This is still a WIP at this stage. 
 
 ##############################################################################################################
-
 
 import RPi.GPIO as gpio
 import time
@@ -73,7 +72,7 @@ sounds = ["./AudioFiles/Hello_Plural.wav","./AudioFiles/hello_singular.wav",
 video = cv2.VideoCapture(0)  ## This captures the video feed from the camera constantly
 
 a = 1  ## variable to keep track of the number of iterations
-face_cascade = cv2.CascadeClassifier("./openCV Model/haarcascade_frontalface_default.xml")  ## Reads the CV model
+face_cascade = cv2.CascadeClassifier("./model/haarcascade_frontalface_default.xml")  ## Reads the CV model
 while_breaker = 0  ## This is for breaking the while loop
 
 ## Begin Main Loop
@@ -84,7 +83,7 @@ while True:    ## infinite while loop being performed here
     if len(camera_face) > 0:  ## Checks if a face was indeed found in the camera
         if len(camera_face)>1:  ## Checks if more than one face was found
 	        sound_player(sounds[0])  ## Says hello to more than one human found
-    	else:                        ## checks if only one face was found
+        else:                        ## checks if only one face was found
             sound_player(sounds[1])  ## Says hello to one human found
         face_not_in_middle = True    ## Assumes that the human face is not in the middle
         while face_not_in_middle == True:  ## Looop on the condition that the human face is not in the middle
@@ -94,7 +93,7 @@ while True:    ## infinite while loop being performed here
             check,frame = video.read()  ##reads another frame from the video feed
             face_position = face_cascade.detectMultiScale(frame,scaleFactor=1.05,minNeighbors=5)  ##Attempts to detect the face
             if len(face_position) > 0:   ## if a face was indeed detected
-		        print("seen")          ## print "seen"
+                print("seen")          ## print "seen"
                 face_position_real = face_position[0][0]  ##Find the x-coordinate of the face
                 w = face_position[0][2]                  ##find the z-coordinate of the face
                 if 160<= face_position_real <= 320 and 150<=w<=190:   ##These ranges are considered to be the safe zone of the face
