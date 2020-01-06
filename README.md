@@ -4,9 +4,9 @@ In this project, the plan was to build a car that can somehow
 interact with a human being. It began with a Raspberry Pi, a fancy webcam from the late 2000s,
 and some other tools that I was able to buy from the local store. 
 
-### Version 1 of Laura
+### Latest Laura Robotic Build
 
-![Older version of Laura](images/v1.png)
+<img src="images/v2.jpeg" width="400" height="260"/>
 
 Tools used to build Laura: 
 
@@ -31,9 +31,13 @@ An Open CV model, taken from Jabril's drone experimentation. He also has a load 
 Laura was then taught to follow human faces around using the GPIO library and the model. 
 
 The speaker that was added to Laura was a small addition that allows for very minimal interaction. Laura will simply say
-"Hello Human(s)" depending on how mnay faces she sees. 
+"Hello Human(s)" depending on how many faces she sees. 
 
 Currently, the second version, which already has a built body, includes a modular NN that will memorize the faces, through training on each recognized human 
 face and then categorize them. The model is still in development, but the first version (Laura.py) is fully operational. 
 
- 
+The main script for the first version can be located in the Laura.py file. 
+
+### Version 1 of Laura
+
+<img src="images/v1.png" width="450" height="321"/>
